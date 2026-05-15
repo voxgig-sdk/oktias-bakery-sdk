@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "product": {
+      "PRODUCT00": {
+        "category": "s5a",
+        "currency": "s5b",
+        "description": "s5c",
+        "id": "PRODUCT00",
+        "image_url": "s5e",
+        "in_stock": false,
+        "name": "s60",
+        "price": 97,
+        "quantity": "s62"
+      },
+      "PRODUCT01": {
+        "category": "sb4",
+        "currency": "sb5",
+        "description": "sb6",
+        "id": "PRODUCT01",
+        "image_url": "sb8",
+        "in_stock": false,
+        "name": "sba",
+        "price": 187,
+        "quantity": "sbc"
+      },
+      "PRODUCT02": {
+        "category": "s10e",
+        "currency": "s10f",
+        "description": "s110",
+        "id": "PRODUCT02",
+        "image_url": "s112",
+        "in_stock": false,
+        "name": "s114",
+        "price": 277,
+        "quantity": "s116"
+      }
+    }
+  },
+  "new": {
+    "product": {
+      "product_ref01": {
+        "category": "s168",
+        "currency": "s169",
+        "description": "s16a",
+        "image_url": "s16c",
+        "in_stock": false,
+        "name": "s16e",
+        "price": 367,
+        "quantity": "s170"
+      }
+    }
+  }
+}

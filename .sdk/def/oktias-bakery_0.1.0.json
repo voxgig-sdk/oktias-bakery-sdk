@@ -1,0 +1,208 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Oktias Bakery API",
+    "description": "This API provides functionality for an online bakery store, enabling users to browse products, place orders, and manage a shopping cart. It is designed to streamline the shopping experience for cakes and pastries, integrating with backend services for inventory and transaction management.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://beni.xo.je"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://beni.xo.je",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "Get all products",
+        "description": "Retrieves a list of all available bakery products including cakes and pastries",
+        "operationId": "getProducts",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filter products by category (e.g., cakes, pastries)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of products to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of products to skip for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "products": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Product"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total number of products available"
+                    },
+                    "limit": {
+                      "type": "integer"
+                    },
+                    "offset": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the product"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the bakery product"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the product"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of the product (e.g., cakes, pastries)",
+            "enum": [
+              "cakes",
+              "pastries",
+              "breads",
+              "desserts"
+            ]
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "description": "Price of the product"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency code (e.g., USD, EUR)",
+            "default": "USD"
+          },
+          "imageUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the product image"
+          },
+          "inStock": {
+            "type": "boolean",
+            "description": "Indicates if the product is currently in stock"
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Available quantity in inventory"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "price",
+          "category",
+          "inStock"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "details": {
+            "type": "string",
+            "description": "Additional error details"
+          }
+        },
+        "required": [
+          "error"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Products",
+      "description": "Operations related to bakery products"
+    },
+    {
+      "name": "Orders",
+      "description": "Operations related to order management"
+    },
+    {
+      "name": "Cart",
+      "description": "Operations related to shopping cart management"
+    }
+  ]
+}
