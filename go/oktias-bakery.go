@@ -1,10 +1,10 @@
 package voxgigoktiasbakerysdk
 
 import (
-	"github.com/voxgig-sdk/oktias-bakery-sdk/core"
-	"github.com/voxgig-sdk/oktias-bakery-sdk/entity"
-	"github.com/voxgig-sdk/oktias-bakery-sdk/feature"
-	_ "github.com/voxgig-sdk/oktias-bakery-sdk/utility"
+	"github.com/voxgig-sdk/oktias-bakery-sdk/go/core"
+	"github.com/voxgig-sdk/oktias-bakery-sdk/go/entity"
+	"github.com/voxgig-sdk/oktias-bakery-sdk/go/feature"
+	_ "github.com/voxgig-sdk/oktias-bakery-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

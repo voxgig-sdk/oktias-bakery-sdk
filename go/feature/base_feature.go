@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/oktias-bakery-sdk/core"
+	"github.com/voxgig-sdk/oktias-bakery-sdk/go/core"
 )
 
 type BaseFeature struct {

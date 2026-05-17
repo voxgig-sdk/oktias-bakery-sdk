@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/oktias-bakery-sdk"
+	sdk "github.com/voxgig-sdk/oktias-bakery-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

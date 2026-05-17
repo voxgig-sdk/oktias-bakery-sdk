@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/oktias-bakery-sdk"
-	"github.com/voxgig-sdk/oktias-bakery-sdk/core"
+	sdk "github.com/voxgig-sdk/oktias-bakery-sdk/go"
+	"github.com/voxgig-sdk/oktias-bakery-sdk/go/core"
 )
 
 func TestProductDirect(t *testing.T) {
