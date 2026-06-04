@@ -16,7 +16,15 @@
           }
         ],
         "title": "Oktias Bakery API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Browse a small online bakery's catalogue and explore product data over HTTP",
+        "homepage": "https://beni.xo.je",
+        "docs_url": "https://freepublicapis.com/oktias-bakery-api",
+        "about_md": "The Oktias Bakery API exposes data for an online bakery storefront hosted at [beni.xo.je](https://beni.xo.je). It is catalogued on [Free Public APIs](https://freepublicapis.com/oktias-bakery-api) as a small, freely accessible demo-style API around bakery products.\n\nWhat you can do with the API:\n\n- Retrieve product listings from the bakery catalogue\n- Use the data to power storefront-style demos, tutorials, or sample shopping-cart UIs\n\nOperational notes:\n\n- The Free Public APIs catalogue page reports CORS is disabled, so browser-side calls from another origin will not work without a proxy.\n- No authentication scheme or rate limit is documented on the catalogue page; treat the service as best-effort and unmetered.\n- No licence is published for the data; check with the operator before redistributing responses.",
+        "entity_desc": {
+          "product": "A bakery item in the Oktias storefront catalogue, retrievable via the API's product endpoint(s)."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +32,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "product": {

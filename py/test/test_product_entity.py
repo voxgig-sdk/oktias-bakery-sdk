@@ -92,7 +92,6 @@ def _product_basic_setup(extra):
         "OKTIASBAKERY_TEST_PRODUCT_ENTID": idmap,
         "OKTIASBAKERY_TEST_LIVE": "FALSE",
         "OKTIASBAKERY_TEST_EXPLAIN": "FALSE",
-        "OKTIASBAKERY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _product_basic_setup(extra):
     if env.get("OKTIASBAKERY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OKTIASBAKERY_APIKEY"),
             },
             extra or {},
         ])

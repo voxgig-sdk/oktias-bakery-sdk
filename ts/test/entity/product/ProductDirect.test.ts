@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'OKTIASBAKERY_TEST_PRODUCT_ENTID': {},
     'OKTIASBAKERY_TEST_LIVE': 'FALSE',
-    'OKTIASBAKERY_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.OKTIASBAKERY_TEST_LIVE
 
   if (live) {
     const client = new OktiasBakerySDK({
-      apikey: env.OKTIASBAKERY_APIKEY,
     })
 
     let idmap: any = env['OKTIASBAKERY_TEST_PRODUCT_ENTID']
