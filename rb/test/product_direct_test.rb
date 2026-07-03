@@ -62,12 +62,14 @@ def product_direct_setup(mockres)
   env = Runner.env_override({
     "OKTIASBAKERY_TEST_PRODUCT_ENTID" => {},
     "OKTIASBAKERY_TEST_LIVE" => "FALSE",
+    "OKTIASBAKERY_APIKEY" => "NONE",
   })
 
   live = env["OKTIASBAKERY_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["OKTIASBAKERY_APIKEY"],
     }
     client = OktiasBakerySDK.new(merged_opts)
     return {

@@ -1,6 +1,11 @@
 # OktiasBakery Ruby SDK
 
-The Ruby SDK for the OktiasBakery API. Provides an entity-oriented interface using idiomatic Ruby conventions.
+
+
+The Ruby SDK for the OktiasBakery API — an entity-oriented client using idiomatic Ruby conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -31,13 +36,15 @@ loading a specific record.
 ```ruby
 require_relative "OktiasBakery_sdk"
 
-client = OktiasBakerySDK.new({})
+client = OktiasBakerySDK.new({
+  "apikey" => ENV["OKTIAS-BAKERY_APIKEY"],
+})
 ```
 
 ### 2. List products
 
 ```ruby
-result, err = client.Product(nil).list(nil, nil)
+result, err = client.Product().list
 raise err if err
 
 if result.is_a?(Array)
@@ -89,11 +96,9 @@ puts fetchdef["headers"]
 Create a mock client for unit testing — no server required:
 
 ```ruby
-client = OktiasBakerySDK.test(nil, nil)
+client = OktiasBakerySDK.test
 
-result, err = client.OktiasBakery(nil).load(
-  { "id" => "test01" }, nil
-)
+result, err = client.OktiasBakery().load({ "id" => "test01" })
 # result contains mock response data
 ```
 
@@ -125,6 +130,7 @@ Create a `.env.local` file at the project root:
 
 ```
 OKTIAS-BAKERY_TEST_LIVE=TRUE
+OKTIAS-BAKERY_APIKEY=<your-key>
 ```
 
 Then run:
@@ -147,6 +153,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

@@ -93,12 +93,14 @@ func productDirectSetup(mockres any) *productDirectSetupResult {
 	env := envOverride(map[string]any{
 		"OKTIASBAKERY_TEST_PRODUCT_ENTID": map[string]any{},
 		"OKTIASBAKERY_TEST_LIVE":    "FALSE",
+		"OKTIASBAKERY_APIKEY":       "NONE",
 	})
 
 	live := env["OKTIASBAKERY_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["OKTIASBAKERY_APIKEY"],
 		}
 		client := sdk.NewOktiasBakerySDK(mergedOpts)
 

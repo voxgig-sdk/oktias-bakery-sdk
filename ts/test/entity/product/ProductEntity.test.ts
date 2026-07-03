@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'OKTIAS_BAKERY_TEST_PRODUCT_ENTID': idmap,
     'OKTIAS_BAKERY_TEST_LIVE': 'FALSE',
     'OKTIAS_BAKERY_TEST_EXPLAIN': 'FALSE',
+    'OKTIAS_BAKERY_APIKEY': 'NONE',
   })
 
   idmap = env['OKTIAS_BAKERY_TEST_PRODUCT_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new OktiasBakerySDK(merge([
       {
+        apikey: env.OKTIAS_BAKERY_APIKEY,
       },
       extra
     ]))

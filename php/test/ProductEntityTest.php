@@ -86,6 +86,7 @@ function product_basic_setup($extra)
         "OKTIASBAKERY_TEST_PRODUCT_ENTID" => $idmap,
         "OKTIASBAKERY_TEST_LIVE" => "FALSE",
         "OKTIASBAKERY_TEST_EXPLAIN" => "FALSE",
+        "OKTIASBAKERY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,6 +98,7 @@ function product_basic_setup($extra)
     if ($env["OKTIASBAKERY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["OKTIASBAKERY_APIKEY"],
             ],
             $extra ?? [],
         ]);

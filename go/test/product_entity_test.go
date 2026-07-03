@@ -119,6 +119,7 @@ func productBasicSetup(extra map[string]any) *entityTestSetup {
 		"OKTIASBAKERY_TEST_PRODUCT_ENTID": idmap,
 		"OKTIASBAKERY_TEST_LIVE":      "FALSE",
 		"OKTIASBAKERY_TEST_EXPLAIN":   "FALSE",
+		"OKTIASBAKERY_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["OKTIASBAKERY_TEST_PRODUCT_ENTID"])
@@ -129,6 +130,7 @@ func productBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["OKTIASBAKERY_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["OKTIASBAKERY_APIKEY"],
 			},
 			extra,
 		})

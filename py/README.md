@@ -1,6 +1,11 @@
 # OktiasBakery Python SDK
 
-The Python SDK for the OktiasBakery API. Provides an entity-oriented interface following Pythonic conventions.
+
+
+The Python SDK for the OktiasBakery API — an entity-oriented client following Pythonic conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -23,15 +28,18 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
+import os
 from oktiasbakery_sdk import OktiasBakerySDK
 
-client = OktiasBakerySDK({})
+client = OktiasBakerySDK({
+    "apikey": os.environ.get("OKTIAS-BAKERY_APIKEY"),
+})
 ```
 
 ### 2. List products
 
 ```python
-result, err = client.Product(None).list(None, None)
+result, err = client.Product().list()
 if err:
     raise Exception(err)
 
@@ -83,11 +91,9 @@ print(fetchdef["headers"])
 Create a mock client for unit testing — no server required:
 
 ```python
-client = OktiasBakerySDK.test(None, None)
+client = OktiasBakerySDK.test()
 
-result, err = client.OktiasBakery(None).load(
-    {"id": "test01"}, None
-)
+result, err = client.OktiasBakery().load({"id": "test01"})
 # result contains mock response data
 ```
 
@@ -118,6 +124,7 @@ Create a `.env.local` file at the project root:
 
 ```
 OKTIAS-BAKERY_TEST_LIVE=TRUE
+OKTIAS-BAKERY_APIKEY=<your-key>
 ```
 
 Then run:
@@ -141,6 +148,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

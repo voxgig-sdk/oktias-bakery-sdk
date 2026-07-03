@@ -1,23 +1,8 @@
 # OktiasBakery SDK
 
-Browse a small online bakery's catalogue and explore product data over HTTP
+Oktias Bakery API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Oktias Bakery API
-
-The Oktias Bakery API exposes data for an online bakery storefront hosted at [beni.xo.je](https://beni.xo.je). It is catalogued on [Free Public APIs](https://freepublicapis.com/oktias-bakery-api) as a small, freely accessible demo-style API around bakery products.
-
-What you can do with the API:
-
-- Retrieve product listings from the bakery catalogue
-- Use the data to power storefront-style demos, tutorials, or sample shopping-cart UIs
-
-Operational notes:
-
-- The Free Public APIs catalogue page reports CORS is disabled, so browser-side calls from another origin will not work without a proxy.
-- No authentication scheme or rate limit is documented on the catalogue page; treat the service as best-effort and unmetered.
-- No licence is published for the data; check with the operator before redistributing responses.
 
 ## Try it
 
@@ -51,29 +36,31 @@ gem install oktias-bakery-sdk
 luarocks install oktias-bakery-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { OktiasBakerySDK } from 'oktias-bakery'
 
-const client = new OktiasBakerySDK({})
+const client = new OktiasBakerySDK({
+  apikey: process.env.OKTIAS-BAKERY_APIKEY,
+})
 
 // List all products
 const products = await client.Product().list()
+console.log(products.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -103,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Product** | A bakery item in the Oktias storefront catalogue, retrievable via the API's product endpoint(s). | `/products` |
+| **Product** |  | `/products` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -113,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from oktiasbakery_sdk import OktiasBakerySDK
 
-client = OktiasBakerySDK({})
+client = OktiasBakerySDK({
+    "apikey": os.environ.get("OKTIAS-BAKERY_APIKEY"),
+})
 
 # List all products
-products, err = client.Product(None).list(None, None)
+products, err = client.Product().list()
+print(products)
 ```
 
 ### PHP
@@ -127,10 +118,13 @@ products, err = client.Product(None).list(None, None)
 <?php
 require_once 'oktiasbakery_sdk.php';
 
-$client = new OktiasBakerySDK([]);
+$client = new OktiasBakerySDK([
+    "apikey" => getenv("OKTIAS-BAKERY_APIKEY"),
+]);
 
 // List all products
-[$products, $err] = $client->Product(null)->list(null, null);
+[$products, $err] = $client->Product()->list();
+print_r($products);
 ```
 
 ### Golang
@@ -138,10 +132,13 @@ $client = new OktiasBakerySDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/oktias-bakery-sdk/go"
 
-client := sdk.NewOktiasBakerySDK(map[string]any{})
+client := sdk.NewOktiasBakerySDK(map[string]any{
+    "apikey": os.Getenv("OKTIAS-BAKERY_APIKEY"),
+})
 
 // List all products
 products, err := client.Product(nil).List(nil, nil)
+fmt.Println(products)
 ```
 
 ### Ruby
@@ -149,10 +146,13 @@ products, err := client.Product(nil).List(nil, nil)
 ```ruby
 require_relative "OktiasBakery_sdk"
 
-client = OktiasBakerySDK.new({})
+client = OktiasBakerySDK.new({
+  "apikey" => ENV["OKTIAS-BAKERY_APIKEY"],
+})
 
 # List all products
-products, err = client.Product(nil).list(nil, nil)
+products, err = client.Product().list
+puts products
 ```
 
 ### Lua
@@ -160,10 +160,13 @@ products, err = client.Product(nil).list(nil, nil)
 ```lua
 local sdk = require("oktias-bakery_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("OKTIAS-BAKERY_APIKEY"),
+})
 
 -- List all products
-local products, err = client:Product(nil):list(nil, nil)
+local products, err = client:Product():list()
+print(products)
 ```
 
 ## Unit testing in offline mode
@@ -182,25 +185,21 @@ const result = await client.Product().load({ id: 'test01' })
 ### Python
 
 ```python
-client = OktiasBakerySDK.test(None, None)
-result, err = client.Product(None).load(
-    {"id": "test01"}, None
-)
+client = OktiasBakerySDK.test()
+result, err = client.Product().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = OktiasBakerySDK::test(null, null);
-[$result, $err] = $client->Product(null)->load(
-    ["id" => "test01"], null
-);
+$client = OktiasBakerySDK::test();
+[$result, $err] = $client->Product()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Product(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -209,19 +208,15 @@ result, err := client.Product(nil).Load(
 ### Ruby
 
 ```ruby
-client = OktiasBakerySDK.test(nil, nil)
-result, err = client.Product(nil).load(
-  { "id" => "test01" }, nil
-)
+client = OktiasBakerySDK.test
+result, err = client.Product().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Product(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Product():load({ id = "test01" })
 ```
 
 ## How it works
@@ -325,11 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Oktias Bakery API
-
-- Upstream: [https://beni.xo.je](https://beni.xo.je)
-- API docs: [https://freepublicapis.com/oktias-bakery-api](https://freepublicapis.com/oktias-bakery-api)
 
 ---
 

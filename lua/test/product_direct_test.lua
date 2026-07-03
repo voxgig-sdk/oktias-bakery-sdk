@@ -63,12 +63,14 @@ function product_direct_setup(mockres)
   local env = runner.env_override({
     ["OKTIASBAKERY_TEST_PRODUCT_ENTID"] = {},
     ["OKTIASBAKERY_TEST_LIVE"] = "FALSE",
+    ["OKTIASBAKERY_APIKEY"] = "NONE",
   })
 
   local live = env["OKTIASBAKERY_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["OKTIASBAKERY_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {
