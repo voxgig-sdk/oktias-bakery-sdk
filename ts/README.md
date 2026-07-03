@@ -10,7 +10,7 @@ The TypeScript SDK for the OktiasBakery API — a type-safe, entity-oriented cli
 
 ## Install
 ```bash
-npm install oktias-bakery
+npm install @voxgig-sdk/oktias-bakery
 ```
 ## Tutorial: your first API call
 

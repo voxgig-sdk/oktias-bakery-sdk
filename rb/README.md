@@ -10,13 +10,13 @@ The Ruby SDK for the OktiasBakery API — an entity-oriented client using idioma
 
 ## Install
 ```bash
-gem install oktias-bakery-sdk
+gem install voxgig-sdk-oktias-bakery
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "oktias-bakery-sdk"
+gem "voxgig-sdk-oktias-bakery"
 ```
 
 Then run:

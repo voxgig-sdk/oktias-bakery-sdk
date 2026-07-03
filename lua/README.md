@@ -10,7 +10,7 @@ The Lua SDK for the OktiasBakery API — an entity-oriented client using Lua con
 
 ## Install
 ```bash
-luarocks install oktias-bakery-sdk
+luarocks install voxgig-sdk-oktias-bakery
 ```
 
 If the module is not yet published, add the source directory to

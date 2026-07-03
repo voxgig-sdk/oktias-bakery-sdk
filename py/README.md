@@ -10,7 +10,7 @@ The Python SDK for the OktiasBakery API — an entity-oriented client following 
 
 ## Install
 ```bash
-pip install oktias-bakery-sdk
+pip install voxgig-sdk-oktias-bakery
 ```
 
 Or install from source:

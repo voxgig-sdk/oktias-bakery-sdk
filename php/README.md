@@ -10,7 +10,7 @@ The PHP SDK for the OktiasBakery API — an entity-oriented client using PHP con
 
 ## Install
 ```bash
-composer require voxgig/oktias-bakery-sdk
+composer require voxgig-sdk/oktias-bakery
 ```
 
 
