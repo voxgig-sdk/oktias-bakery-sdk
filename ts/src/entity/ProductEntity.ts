@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Product,
+  ProductListMatch,
+} from '../OktiasBakeryTypes'
 
 // TODO: needs Entity superclass
-class ProductEntity extends OktiasBakeryEntityBase {
+class ProductEntity extends OktiasBakeryEntityBase<Product> {
 
   constructor(client: OktiasBakerySDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class ProductEntity extends OktiasBakeryEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: ProductListMatch, ctrl?: Control): Promise<Product[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class ProductEntity extends OktiasBakeryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Product[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

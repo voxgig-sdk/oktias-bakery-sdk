@@ -45,6 +45,7 @@ class ProductEntity
     end
   end
 
+  # @return [Product, Hash] the current Product data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class ProductEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Product fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class ProductEntity
   
 
   
+  # List Product items matching the given filter.
+  #
+  # @param reqmatch [ProductListMatch, Hash, nil] match filter (any subset of Product fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Product>, Array] the matching Product items; raises OktiasBakeryError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

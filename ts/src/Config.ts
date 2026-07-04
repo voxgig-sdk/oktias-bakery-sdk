@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://beni.xo.je',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

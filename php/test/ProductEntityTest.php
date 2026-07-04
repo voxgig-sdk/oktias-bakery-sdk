@@ -50,8 +50,7 @@ class ProductEntityTest extends TestCase
         $product_ref01_ent = $client->Product(null);
         $product_ref01_match = [];
 
-        [$product_ref01_list_result, $err] = $product_ref01_ent->list($product_ref01_match, null);
-        $this->assertNull($err);
+        $product_ref01_list_result = $product_ref01_ent->list($product_ref01_match, null);
         $this->assertIsArray($product_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function product_basic_setup($extra)
         "OKTIASBAKERY_TEST_PRODUCT_ENTID" => $idmap,
         "OKTIASBAKERY_TEST_LIVE" => "FALSE",
         "OKTIASBAKERY_TEST_EXPLAIN" => "FALSE",
-        "OKTIASBAKERY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function product_basic_setup($extra)
     if ($env["OKTIASBAKERY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["OKTIASBAKERY_APIKEY"],
             ],
             $extra ?? [],
         ]);

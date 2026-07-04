@@ -50,8 +50,7 @@ class TestProductEntity:
         product_ref01_ent = client.Product(None)
         product_ref01_match = {}
 
-        product_ref01_list_result, err = product_ref01_ent.list(product_ref01_match, None)
-        assert err is None
+        product_ref01_list_result = product_ref01_ent.list(product_ref01_match, None)
         assert isinstance(product_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _product_basic_setup(extra):
         "OKTIASBAKERY_TEST_PRODUCT_ENTID": idmap,
         "OKTIASBAKERY_TEST_LIVE": "FALSE",
         "OKTIASBAKERY_TEST_EXPLAIN": "FALSE",
-        "OKTIASBAKERY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _product_basic_setup(extra):
     if env.get("OKTIASBAKERY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OKTIASBAKERY_APIKEY"),
             },
             extra or {},
         ])

@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `OktiasBakerySDK.test()`.
 ## ProductEntity
 
 ```ts
-const product = client.Product()
+const product = client.product
 ```
 
 ### Fields
@@ -134,7 +133,7 @@ const product = client.Product()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Product().list()
+const results = await client.product.list()
 ```
 
 ### Common Methods

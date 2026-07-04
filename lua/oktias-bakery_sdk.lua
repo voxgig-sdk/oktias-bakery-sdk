@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:product():list() / client:product():load({ id = ... })
+function OktiasBakerySDK:product(data)
+  local EntityMod = require("entity.product_entity")
+  if data == nil then
+    if self._product == nil then
+      self._product = EntityMod.new(self, nil)
+    end
+    return self._product
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:product() instead.
 function OktiasBakerySDK:Product(data)
   local EntityMod = require("entity.product_entity")
   return EntityMod.new(self, data)

@@ -245,6 +245,9 @@ func (sdk *OktiasBakerySDK) Direct(fetchargs map[string]any) (map[string]any, er
 }
 
 
+// Product returns a Product entity bound to this client.
+// Idiomatic usage: client.Product(nil).List(nil, nil) or
+// client.Product(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OktiasBakerySDK) Product(data map[string]any) OktiasBakeryEntity {
 	return NewProductEntityFunc(sdk, data)
 }

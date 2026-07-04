@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch ProductListMatch
+---@param ctrl? table
+---@return Product[]
+---@return string? err
 function ProductEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
