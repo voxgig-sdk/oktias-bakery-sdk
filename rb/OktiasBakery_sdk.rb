@@ -208,13 +208,7 @@ class OktiasBakerySDK
   end
 
 
-  # Idiomatic facade: client.product.list / client.product.load({ "id" => ... })
-  def product
-    require_relative 'entity/product_entity'
-    @product ||= ProductEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.product instead.
+  # Canonical facade: client.Product.list / client.Product.load({ "id" => ... })
   def Product(data = nil)
     require_relative 'entity/product_entity'
     ProductEntity.new(self, data)

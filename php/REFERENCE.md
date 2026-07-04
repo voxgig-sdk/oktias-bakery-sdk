@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## ProductEntity
 
 ```php
-$product = $client->product();
+$product = $client->Product();
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ $product = $client->product();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->product()->list([]);
+$results = $client->Product()->list([]);
 ```
 
 ### Common Methods

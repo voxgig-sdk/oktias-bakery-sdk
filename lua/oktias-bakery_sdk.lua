@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:product():list() / client:product():load({ id = ... })
-function OktiasBakerySDK:product(data)
+-- Idiomatic facade: client:Product():list() / client:Product():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function OktiasBakerySDK:Product(data)
   local EntityMod = require("entity.product_entity")
   if data == nil then
     if self._product == nil then
@@ -253,12 +254,6 @@ function OktiasBakerySDK:product(data)
     end
     return self._product
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:product() instead.
-function OktiasBakerySDK:Product(data)
-  local EntityMod = require("entity.product_entity")
   return EntityMod.new(self, data)
 end
 

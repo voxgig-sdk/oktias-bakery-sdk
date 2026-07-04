@@ -233,10 +233,10 @@ class OktiasBakerySDK
 
     private $_product = null;
 
-    // Idiomatic facade: $client->product()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Product() (PHP method
-    // names are case-insensitive).
-    public function product($data = null)
+    // Canonical facade: $client->Product()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->product()
+    // resolves here too.
+    public function Product($data = null)
     {
         require_once __DIR__ . '/entity/product_entity.php';
         if ($data === null) {

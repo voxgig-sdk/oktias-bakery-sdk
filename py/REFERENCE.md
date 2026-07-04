@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ProductEntity
 
 ```python
-product = client.product
+product = client.Product()
 ```
 
 ### Fields
@@ -104,7 +104,9 @@ product = client.product
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.product.list({})
+results = client.Product().list({})
+for product in results:
+    print(product)
 ```
 
 ### Common Methods

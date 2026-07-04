@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## ProductEntity
 
 ```ruby
-product = client.product
+product = client.Product
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ product = client.product
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.product.list(nil)
+results = client.Product.list(nil)
 ```
 
 ### Common Methods

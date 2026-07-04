@@ -220,25 +220,15 @@ class OktiasBakerySDK:
         }
 
 
-    @property
-    def product(self):
-        """Idiomatic facade: client.product.list() / client.product.load({"id": ...})."""
-        from entity.product_entity import ProductEntity
-        cached = getattr(self, "_product", None)
-        if cached is None:
-            cached = ProductEntity(self, None)
-            self._product = cached
-        return cached
-
-    def Product(self, data=None):
-        # Deprecated: use client.product instead.
+    def Product(self, data=None) -> "ProductEntity":
+        """Entity factory: client.Product().list({}) / client.Product().load({"id": ...})."""
         from entity.product_entity import ProductEntity
         return ProductEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "OktiasBakerySDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class OktiasBakerySDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.product_entity import ProductEntity

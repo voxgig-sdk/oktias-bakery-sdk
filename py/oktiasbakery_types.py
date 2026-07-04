@@ -4,35 +4,40 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Product:
+class ProductRequired(TypedDict):
     category: str
     id: str
     in_stock: bool
     name: str
     price: float
-    currency: Optional[str] = None
-    description: Optional[str] = None
-    image_url: Optional[str] = None
-    quantity: Optional[int] = None
 
 
-@dataclass
-class ProductListMatch:
-    category: Optional[str] = None
-    currency: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[str] = None
-    image_url: Optional[str] = None
-    in_stock: Optional[bool] = None
-    name: Optional[str] = None
-    price: Optional[float] = None
-    quantity: Optional[int] = None
+class Product(ProductRequired, total=False):
+    currency: str
+    description: str
+    image_url: str
+    quantity: int
 
+
+class ProductListMatch(TypedDict, total=False):
+    category: str
+    currency: str
+    description: str
+    id: str
+    image_url: str
+    in_stock: bool
+    name: str
+    price: float
+    quantity: int
