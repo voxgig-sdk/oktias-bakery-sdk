@@ -21,8 +21,7 @@ type Product struct {
 	Quantity *int `json:"quantity,omitempty"`
 }
 
-// ProductListMatch mirrors the product fields as an all-optional match
-// filter (Go analog of Partial<Product>).
+// ProductListMatch is the typed request payload for Product.ListTyped.
 type ProductListMatch struct {
 	Category *string `json:"category,omitempty"`
 	Currency *string `json:"currency,omitempty"`

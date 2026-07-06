@@ -49,7 +49,7 @@ Product = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Product#list (any subset of Product fields).
+# Request payload for Product#list.
 #
 # @!attribute [rw] category
 #   @return [String, nil]

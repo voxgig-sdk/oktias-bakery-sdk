@@ -8,7 +8,7 @@ Complete API reference for the OktiasBakery Python SDK.
 ### Constructor
 
 ```python
-from oktias-bakery_sdk import OktiasBakerySDK
+from oktiasbakery_sdk import OktiasBakerySDK
 
 client = OktiasBakerySDK(options)
 ```
@@ -87,24 +87,24 @@ product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$STRING`` | Yes |  |
-| `currency` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | Yes |  |
-| `image_url` | ``$STRING`` | No |  |
-| `in_stock` | ``$BOOLEAN`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
-| `price` | ``$NUMBER`` | Yes |  |
-| `quantity` | ``$INTEGER`` | No |  |
+| `category` | `str` | Yes |  |
+| `currency` | `str` | No |  |
+| `description` | `str` | No |  |
+| `id` | `str` | Yes |  |
+| `image_url` | `str` | No |  |
+| `in_stock` | `bool` | Yes |  |
+| `name` | `str` | Yes |  |
+| `price` | `float` | Yes |  |
+| `quantity` | `int` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Product().list({})
+results = client.Product().list()
 for product in results:
     print(product)
 ```

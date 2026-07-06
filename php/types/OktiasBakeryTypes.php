@@ -26,7 +26,7 @@ class Product
     public ?int $quantity = null;
 }
 
-/** Match filter for Product#list (any subset of Product fields). */
+/** Request payload for Product#list. */
 class ProductListMatch
 {
     public ?string $category = null;

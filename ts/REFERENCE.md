@@ -116,15 +116,15 @@ const product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$STRING`` | Yes |  |
-| `currency` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | Yes |  |
-| `image_url` | ``$STRING`` | No |  |
-| `in_stock` | ``$BOOLEAN`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
-| `price` | ``$NUMBER`` | Yes |  |
-| `quantity` | ``$INTEGER`` | No |  |
+| `category` | `string` | Yes |  |
+| `currency` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `string` | Yes |  |
+| `image_url` | `string` | No |  |
+| `in_stock` | `boolean` | Yes |  |
+| `name` | `string` | Yes |  |
+| `price` | `number` | Yes |  |
+| `quantity` | `number` | No |  |
 
 ### Operations
 

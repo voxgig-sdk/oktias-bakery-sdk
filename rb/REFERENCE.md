@@ -8,7 +8,7 @@ Complete API reference for the OktiasBakery Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'oktias-bakery_sdk'
+require_relative 'OktiasBakery_sdk'
 
 client = OktiasBakerySDK.new(options)
 ```
@@ -93,24 +93,24 @@ product = client.Product
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$STRING`` | Yes |  |
-| `currency` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | Yes |  |
-| `image_url` | ``$STRING`` | No |  |
-| `in_stock` | ``$BOOLEAN`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
-| `price` | ``$NUMBER`` | Yes |  |
-| `quantity` | ``$INTEGER`` | No |  |
+| `category` | `String` | Yes |  |
+| `currency` | `String` | No |  |
+| `description` | `String` | No |  |
+| `id` | `String` | Yes |  |
+| `image_url` | `String` | No |  |
+| `in_stock` | `Boolean` | Yes |  |
+| `name` | `String` | Yes |  |
+| `price` | `Float` | Yes |  |
+| `quantity` | `Integer` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Product.list(nil)
+results = client.Product.list
 ```
 
 ### Common Methods

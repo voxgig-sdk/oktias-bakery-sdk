@@ -18,6 +18,15 @@
 ---@field quantity? number
 
 ---@class ProductListMatch
+---@field category? string
+---@field currency? string
+---@field description? string
+---@field id? string
+---@field image_url? string
+---@field in_stock? boolean
+---@field name? string
+---@field price? number
+---@field quantity? number
 
 local M = {}
 

@@ -17,5 +17,15 @@ export interface Product {
   quantity?: number
 }
 
-export type ProductListMatch = Partial<Product>
+export interface ProductListMatch {
+  category?: string
+  currency?: string
+  description?: string
+  id?: string
+  image_url?: string
+  in_stock?: boolean
+  name?: string
+  price?: number
+  quantity?: number
+}
 
