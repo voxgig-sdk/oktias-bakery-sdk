@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -277,14 +274,17 @@
           "url": "https://beni.xo.je"
         },
         "description": "This API provides functionality for an online bakery store, enabling users to browse products, place orders, and manage a shopping cart. It is designed to streamline the shopping experience for cakes and pastries, integrating with backend services for inventory and transaction management.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://beni.xo.je"
           }
         ],
+        "summary": "This API provides functionality for an online bakery store, enabling users to browse products, place orders, and manage a shopping cart.",
         "title": "Oktias Bakery API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://beni.xo.je"
       },
       "option": {},
       "target": {
@@ -337,6 +337,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -387,6 +390,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

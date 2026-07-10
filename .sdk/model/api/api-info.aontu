@@ -15,9 +15,9 @@ main: {
           url: "https://beni.xo.je"
         }
       ]
+      summary: "This API provides functionality for an online bakery store, enabling users to browse products, place orders, and manage a shopping cart."
       title: "Oktias Bakery API"
       version: "1.0.0"
+      website: "https://beni.xo.je"
     }
   }
-}
-
