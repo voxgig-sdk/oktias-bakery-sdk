@@ -37,7 +37,20 @@ func main() {
 	addr := flag.String("addr", ":8080", "listen address for http transport")
 	flag.Parse()
 
-	client := sdk.NewOktiasBakerySDK(nil)
+	// Configure from the environment: OKTIAS_BAKERY_APIKEY carries the API key and
+	// OKTIAS_BAKERY_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("OKTIAS_BAKERY_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("OKTIAS_BAKERY_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewOktiasBakerySDK(opts)
 	server := mcp.NewServer(
 		&mcp.Implementation{
 			Name:    "oktias-bakery",
