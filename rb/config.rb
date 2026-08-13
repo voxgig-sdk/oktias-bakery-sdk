@@ -55,14 +55,14 @@ module OktiasBakeryConfig
             },
             {
               "active" => true,
-              "name" => "image_url",
+              "name" => "imageUrl",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 4,
             },
             {
               "active" => true,
-              "name" => "in_stock",
+              "name" => "inStock",
               "req" => true,
               "type" => "`$BOOLEAN`",
               "index$" => 5,
@@ -127,6 +127,7 @@ module OktiasBakeryConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/products",
                   "parts" => [
@@ -141,7 +142,7 @@ module OktiasBakeryConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.products`",
                   },
                   "index$" => 0,
                 },

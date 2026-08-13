@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# OktiasBakery SDK exists test
 
 import pytest
 from oktiasbakery_sdk import OktiasBakerySDK

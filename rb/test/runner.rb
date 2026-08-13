@@ -23,8 +23,8 @@ module OktiasBakeryTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("OKTIASBAKERY_TEST_LIVE")
-    override = getenv("OKTIASBAKERY_TEST_OVERRIDE")
+    live = getenv("OKTIAS_BAKERY_TEST_LIVE")
+    override = getenv("OKTIAS_BAKERY_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module OktiasBakeryTestRunner
       end
     end
 
-    explain = getenv("OKTIASBAKERY_TEST_EXPLAIN")
-    m["OKTIASBAKERY_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("OKTIAS_BAKERY_TEST_EXPLAIN")
+    m["OKTIAS_BAKERY_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

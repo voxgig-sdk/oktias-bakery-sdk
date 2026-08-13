@@ -10,8 +10,8 @@ export interface Product {
   currency?: string
   description?: string
   id: string
-  image_url?: string
-  in_stock: boolean
+  imageUrl?: string
+  inStock: boolean
   name: string
   price: number
   quantity?: number
@@ -22,8 +22,8 @@ export interface ProductListMatch {
   currency?: string
   description?: string
   id?: string
-  image_url?: string
-  in_stock?: boolean
+  imageUrl?: string
+  inStock?: boolean
   name?: string
   price?: number
   quantity?: number

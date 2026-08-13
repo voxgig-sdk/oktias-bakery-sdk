@@ -97,8 +97,8 @@ product = client.Product
 | `currency` | `String` | No |  |
 | `description` | `String` | No |  |
 | `id` | `String` | Yes |  |
-| `image_url` | `String` | No |  |
-| `in_stock` | `Boolean` | Yes |  |
+| `imageUrl` | `String` | No |  |
+| `inStock` | `Boolean` | Yes |  |
 | `name` | `String` | Yes |  |
 | `price` | `Float` | Yes |  |
 | `quantity` | `Integer` | No |  |

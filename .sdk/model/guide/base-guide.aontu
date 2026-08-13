@@ -8,6 +8,7 @@ guide: {
   entity: product: {
     path: "/products": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.products`")|top
     }
   }
 

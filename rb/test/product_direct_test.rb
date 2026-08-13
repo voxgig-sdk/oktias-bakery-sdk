@@ -60,11 +60,11 @@ def product_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "OKTIASBAKERY_TEST_PRODUCT_ENTID" => {},
-    "OKTIASBAKERY_TEST_LIVE" => "FALSE",
+    "OKTIAS_BAKERY_TEST_PRODUCT_ENTID" => {},
+    "OKTIAS_BAKERY_TEST_LIVE" => "FALSE",
   })
 
-  live = env["OKTIASBAKERY_TEST_LIVE"] == "TRUE"
+  live = env["OKTIAS_BAKERY_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

@@ -43,8 +43,8 @@ class OktiasBakeryTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('OKTIASBAKERY_TEST_LIVE');
-        $override = self::getenv('OKTIASBAKERY_TEST_OVERRIDE');
+        $live = self::getenv('OKTIAS_BAKERY_TEST_LIVE');
+        $override = self::getenv('OKTIAS_BAKERY_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class OktiasBakeryTestRunner
             }
         }
 
-        $explain = self::getenv('OKTIASBAKERY_TEST_EXPLAIN');
+        $explain = self::getenv('OKTIAS_BAKERY_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['OKTIASBAKERY_TEST_EXPLAIN'] = $explain;
+            $m['OKTIAS_BAKERY_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

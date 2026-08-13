@@ -35,7 +35,9 @@ const client = new OktiasBakerySDK()
 
 ### 2. List product records
 
-`list()` resolves to an array of Product objects — iterate it directly:
+`list()` resolves to an array of Product ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const products = await client.Product().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = OktiasBakerySDK.test()
 
 const product = await client.Product().list()
-// product is a bare entity populated with mock response data
+// product is the entity, populated with mock response data
+// — call product.data() for the record itself
 console.log(product)
 ```
 
@@ -288,8 +291,8 @@ The `prepare()` method returns:
 | `currency` |  |
 | `description` |  |
 | `id` |  |
-| `image_url` |  |
-| `in_stock` |  |
+| `imageUrl` |  |
+| `inStock` |  |
 | `name` |  |
 | `price` |  |
 | `quantity` |  |
@@ -321,8 +324,8 @@ Create an instance: `const product = client.Product()`
 | `currency` | `string` |  |
 | `description` | `string` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
-| `in_stock` | `boolean` |  |
+| `imageUrl` | `string` |  |
+| `inStock` | `boolean` |  |
 | `name` | `string` |  |
 | `price` | `number` |  |
 | `quantity` | `number` |  |

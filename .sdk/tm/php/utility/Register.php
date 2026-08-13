@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ OktiasBakeryUtility::setRegistrar(function (OktiasBakeryUtility $u): void {
     $u->prepare_params = [OktiasBakeryPrepareParams::class, 'call'];
     $u->prepare_path = [OktiasBakeryPreparePath::class, 'call'];
     $u->prepare_query = [OktiasBakeryPrepareQuery::class, 'call'];
+    $u->graphql_body = [OktiasBakeryGraphql::class, 'body'];
+    $u->graphql_errors = [OktiasBakeryGraphql::class, 'errors'];
     $u->result_basic = [OktiasBakeryResultBasic::class, 'call'];
     $u->result_body = [OktiasBakeryResultBody::class, 'call'];
     $u->result_headers = [OktiasBakeryResultHeaders::class, 'call'];

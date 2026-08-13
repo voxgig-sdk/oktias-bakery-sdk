@@ -26,8 +26,8 @@ import {
 describe('ProductEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when OKTIASBAKERY_TEST_LIVE=TRUE.
-  afterEach(liveDelay('OKTIASBAKERY_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when OKTIAS_BAKERY_TEST_LIVE=TRUE.
+  afterEach(liveDelay('OKTIAS_BAKERY_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = OktiasBakerySDK.test()
@@ -63,7 +63,7 @@ describe('ProductEntity', async () => {
     const product_ref01_ent = client.Product()
     const product_ref01_match: any = {}
 
-    const product_ref01_list = await product_ref01_ent.list(product_ref01_match)
+    const product_ref01_list = (await product_ref01_ent.list(product_ref01_match)).map((e: any) => e.data())
 
 
   })

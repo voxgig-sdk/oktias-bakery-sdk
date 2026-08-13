@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.OKTIASBAKERY_TEST_LIVE ||
-    'TRUE' === process.env.OKTIASBAKERY_TEST_OVERRIDE
+    'TRUE' === process.env.OKTIAS_BAKERY_TEST_LIVE ||
+    'TRUE' === process.env.OKTIAS_BAKERY_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.OKTIASBAKERY_TEST_EXPLAIN = process.env.OKTIASBAKERY_TEST_EXPLAIN || m.OKTIASBAKERY_TEST_EXPLAIN
+  m.OKTIAS_BAKERY_TEST_EXPLAIN = process.env.OKTIAS_BAKERY_TEST_EXPLAIN || m.OKTIAS_BAKERY_TEST_EXPLAIN
 
   return m
 }

@@ -26,12 +26,12 @@ main: kit: entity: product: {
       type: "`$STRING`"
     }
     {
-      name: "image_url"
+      name: "imageUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "in_stock"
+      name: "inStock"
       req: true
       type: "`$BOOLEAN`"
     }
@@ -104,7 +104,7 @@ main: kit: entity: product: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.products`"
           }
         }
       ]

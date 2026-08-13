@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'OktiasBakery',
   }
 
 
@@ -84,14 +84,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "image_url",
+          "name": "imageUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "in_stock",
+          "name": "inStock",
           "req": true,
           "type": "`$BOOLEAN`",
           "index$": 5
@@ -156,6 +156,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/products",
               "parts": [
@@ -170,7 +171,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.products`"
               },
               "index$": 0
             }

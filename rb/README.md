@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = OktiasBakerySDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 product = client.Product.list()
 puts product
 ```
@@ -240,8 +241,8 @@ returns a result `Hash` with these keys:
 | `currency` |  |
 | `description` |  |
 | `id` |  |
-| `image_url` |  |
-| `in_stock` |  |
+| `imageUrl` |  |
+| `inStock` |  |
 | `name` |  |
 | `price` |  |
 | `quantity` |  |
@@ -273,8 +274,8 @@ Create an instance: `product = client.Product`
 | `currency` | `String` |  |
 | `description` | `String` |  |
 | `id` | `String` |  |
-| `image_url` | `String` |  |
-| `in_stock` | `Boolean` |  |
+| `imageUrl` | `String` |  |
+| `inStock` | `Boolean` |  |
 | `name` | `String` |  |
 | `price` | `Float` |  |
 | `quantity` | `Integer` |  |

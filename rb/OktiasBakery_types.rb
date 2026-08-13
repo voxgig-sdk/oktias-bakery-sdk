@@ -22,10 +22,10 @@
 # @!attribute [rw] id
 #   @return [String]
 #
-# @!attribute [rw] image_url
+# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
-# @!attribute [rw] in_stock
+# @!attribute [rw] inStock
 #   @return [Boolean]
 #
 # @!attribute [rw] name
@@ -41,8 +41,8 @@ Product = Struct.new(
   :currency,
   :description,
   :id,
-  :image_url,
-  :in_stock,
+  :imageUrl,
+  :inStock,
   :name,
   :price,
   :quantity,
@@ -63,10 +63,10 @@ Product = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] image_url
+# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
-# @!attribute [rw] in_stock
+# @!attribute [rw] inStock
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] name
@@ -82,8 +82,8 @@ ProductListMatch = Struct.new(
   :currency,
   :description,
   :id,
-  :image_url,
-  :in_stock,
+  :imageUrl,
+  :inStock,
   :name,
   :price,
   :quantity,

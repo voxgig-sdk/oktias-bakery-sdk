@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import OktiasBakerySDK
-from core.error import OktiasBakeryError
-from core.result import OktiasBakeryResult
-from core.response import OktiasBakeryResponse
-from core.spec import OktiasBakerySpec
-from feature.base_feature import OktiasBakeryBaseFeature
+from projectname_sdk.core.error import OktiasBakeryError
+from projectname_sdk.core.result import OktiasBakeryResult
+from projectname_sdk.core.response import OktiasBakeryResponse
+from projectname_sdk.core.spec import OktiasBakerySpec
+from projectname_sdk.feature.base_feature import OktiasBakeryBaseFeature
 
 
 def _client():

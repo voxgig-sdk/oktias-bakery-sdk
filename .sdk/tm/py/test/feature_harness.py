@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import OktiasBakeryControl
-from core.error import OktiasBakeryError
-from core.result import OktiasBakeryResult
-from core.spec import OktiasBakerySpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import OktiasBakeryControl
+from projectname_sdk.core.error import OktiasBakeryError
+from projectname_sdk.core.result import OktiasBakeryResult
+from projectname_sdk.core.spec import OktiasBakerySpec
 
 
 # True when this SDK was generated with the named feature.

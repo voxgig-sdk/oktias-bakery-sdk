@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = OktiasBakerySDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = OktiasBakerySDK.test({
+  entity: {
+    product: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const products = await client.Product().list()
-// products is an array of bare Product records populated with mock data
+// products is an array of Product entities, populated with mock data
+// — call products[0].data() for the record itself
 console.log(products)
 ```
 
@@ -110,7 +119,7 @@ import { OktiasBakerySDK } from '@voxgig-sdk/oktias-bakery'
 
 const client = new OktiasBakerySDK()
 
-// List all products (returns Product[])
+// List all products (returns ProductEntity[] — .data() for the record)
 const products = await client.Product().list()
 for (const product of products) {
   console.log(product)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://beni.xo.je](https://beni.xo.je)
 

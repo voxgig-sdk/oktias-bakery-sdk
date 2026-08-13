@@ -102,8 +102,8 @@ fmt.Println(product.GetName()) // "product"
 | `currency` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `string` | Yes |  |
-| `image_url` | `string` | No |  |
-| `in_stock` | `bool` | Yes |  |
+| `imageUrl` | `string` | No |  |
+| `inStock` | `bool` | Yes |  |
 | `name` | `string` | Yes |  |
 | `price` | `float64` | Yes |  |
 | `quantity` | `int` | No |  |

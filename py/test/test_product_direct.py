@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from oktiasbakery_sdk.utility.voxgig_struct import voxgig_struct as vs
 from oktiasbakery_sdk import OktiasBakerySDK
-from core import helpers
+from oktiasbakery_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _product_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "OKTIASBAKERY_TEST_PRODUCT_ENTID": {},
-        "OKTIASBAKERY_TEST_LIVE": "FALSE",
+        "OKTIAS_BAKERY_TEST_PRODUCT_ENTID": {},
+        "OKTIAS_BAKERY_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("OKTIASBAKERY_TEST_LIVE") == "TRUE"
+    live = env.get("OKTIAS_BAKERY_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

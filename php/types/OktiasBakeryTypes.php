@@ -19,8 +19,8 @@ class Product
     public ?string $currency = null;
     public ?string $description = null;
     public string $id;
-    public ?string $image_url = null;
-    public bool $in_stock;
+    public ?string $imageUrl = null;
+    public bool $inStock;
     public string $name;
     public float $price;
     public ?int $quantity = null;
@@ -33,8 +33,8 @@ class ProductListMatch
     public ?string $currency = null;
     public ?string $description = null;
     public ?string $id = null;
-    public ?string $image_url = null;
-    public ?bool $in_stock = null;
+    public ?string $imageUrl = null;
+    public ?bool $inStock = null;
     public ?string $name = null;
     public ?float $price = null;
     public ?int $quantity = null;

@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ OktiasBakeryUtility.registrar = ->(u) {
   u.prepare_params = OktiasBakeryUtilities::PrepareParams
   u.prepare_path = OktiasBakeryUtilities::PreparePath
   u.prepare_query = OktiasBakeryUtilities::PrepareQuery
+  u.graphql_body = OktiasBakeryUtilities::GraphqlBody
+  u.graphql_errors = OktiasBakeryUtilities::GraphqlErrors
   u.result_basic = OktiasBakeryUtilities::ResultBasic
   u.result_body = OktiasBakeryUtilities::ResultBody
   u.result_headers = OktiasBakeryUtilities::ResultHeaders
