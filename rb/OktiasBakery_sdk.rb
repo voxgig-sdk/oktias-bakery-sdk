@@ -28,7 +28,7 @@ class OktiasBakerySDK
     utility = OktiasBakeryUtility.new
     @_utility = utility
 
-    config = OktiasBakeryConfig.make_config
+    config = OktiasBakeryConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

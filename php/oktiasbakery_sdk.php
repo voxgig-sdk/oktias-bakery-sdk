@@ -40,7 +40,7 @@ class OktiasBakerySDK
         $utility = new OktiasBakeryUtility();
         $this->_utility = $utility;
 
-        $config = OktiasBakeryConfig::make_config();
+        $config = OktiasBakeryConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
