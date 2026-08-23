@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "OktiasBakery",
+			"slug": "oktias-bakery",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,42 +37,51 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "category",
 						"req": true,
+						"short": "Category of the product (e.g., cakes, pastries)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currency",
+						"short": "Currency code (e.g., USD, EUR)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the product",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique identifier for the product",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "imageUrl",
+						"short": "URL to the product image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inStock",
 						"req": true,
+						"short": "Indicates if the product is currently in stock",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "name",
 						"req": true,
+						"short": "Name of the bakery product",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "price",
 						"req": true,
+						"short": "Price of the product",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "quantity",
+						"short": "Available quantity in inventory",
 						"type": "`$INTEGER`",
 					},
 				},

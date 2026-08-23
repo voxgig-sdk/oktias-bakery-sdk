@@ -8,46 +8,55 @@ main: kit: entity: product: {
     {
       name: "category"
       req: true
+      short: "Category of the product (e.g., cakes, pastries)"
       type: "`$STRING`"
     }
     {
       name: "currency"
       req: false
+      short: "Currency code (e.g., USD, EUR)"
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Detailed description of the product"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: true
+      short: "Unique identifier for the product"
       type: "`$STRING`"
     }
     {
       name: "imageUrl"
       req: false
+      short: "URL to the product image"
       type: "`$STRING`"
     }
     {
       name: "inStock"
       req: true
+      short: "Indicates if the product is currently in stock"
       type: "`$BOOLEAN`"
     }
     {
       name: "name"
       req: true
+      short: "Name of the bakery product"
       type: "`$STRING`"
     }
     {
       name: "price"
       req: true
+      short: "Price of the product"
       type: "`$NUMBER`"
     }
     {
       name: "quantity"
       req: false
+      short: "Available quantity in inventory"
       type: "`$INTEGER`"
     }
   ]

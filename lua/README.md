@@ -231,15 +231,15 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `currency` |  |
-| `description` |  |
-| `id` |  |
-| `imageUrl` |  |
-| `inStock` |  |
-| `name` |  |
-| `price` |  |
-| `quantity` |  |
+| `category` | Category of the product (e.g., cakes, pastries) |
+| `currency` | Currency code (e.g., USD, EUR) |
+| `description` | Detailed description of the product |
+| `id` | Unique identifier for the product |
+| `imageUrl` | URL to the product image |
+| `inStock` | Indicates if the product is currently in stock |
+| `name` | Name of the bakery product |
+| `price` | Price of the product |
+| `quantity` | Available quantity in inventory |
 
 Operations: List.
 
@@ -264,15 +264,15 @@ Create an instance: `local product = client:Product(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `imageUrl` | `string` |  |
-| `inStock` | `boolean` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `quantity` | `number` |  |
+| `category` | `string` | Category of the product (e.g., cakes, pastries) |
+| `currency` | `string` | Currency code (e.g., USD, EUR) |
+| `description` | `string` | Detailed description of the product |
+| `id` | `string` | Unique identifier for the product |
+| `imageUrl` | `string` | URL to the product image |
+| `inStock` | `boolean` | Indicates if the product is currently in stock |
+| `name` | `string` | Name of the bakery product |
+| `price` | `number` | Price of the product |
+| `quantity` | `number` | Available quantity in inventory |
 
 #### Example: List
 

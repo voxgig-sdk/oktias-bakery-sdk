@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "OktiasBakery",
+            "slug": "oktias-bakery",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,42 +54,51 @@ def make_config():
           {
             "name": "category",
             "req": True,
+            "short": "Category of the product (e.g., cakes, pastries)",
             "type": "`$STRING`",
           },
           {
             "name": "currency",
+            "short": "Currency code (e.g., USD, EUR)",
             "type": "`$STRING`",
           },
           {
             "name": "description",
+            "short": "Detailed description of the product",
             "type": "`$STRING`",
           },
           {
             "name": "id",
             "req": True,
+            "short": "Unique identifier for the product",
             "type": "`$STRING`",
           },
           {
             "name": "imageUrl",
+            "short": "URL to the product image",
             "type": "`$STRING`",
           },
           {
             "name": "inStock",
             "req": True,
+            "short": "Indicates if the product is currently in stock",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "name",
             "req": True,
+            "short": "Name of the bakery product",
             "type": "`$STRING`",
           },
           {
             "name": "price",
             "req": True,
+            "short": "Price of the product",
             "type": "`$NUMBER`",
           },
           {
             "name": "quantity",
+            "short": "Available quantity in inventory",
             "type": "`$INTEGER`",
           },
         ],

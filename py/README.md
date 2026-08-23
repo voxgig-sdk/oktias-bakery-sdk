@@ -243,15 +243,15 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `currency` |  |
-| `description` |  |
-| `id` |  |
-| `imageUrl` |  |
-| `inStock` |  |
-| `name` |  |
-| `price` |  |
-| `quantity` |  |
+| `category` | Category of the product (e.g., cakes, pastries) |
+| `currency` | Currency code (e.g., USD, EUR) |
+| `description` | Detailed description of the product |
+| `id` | Unique identifier for the product |
+| `imageUrl` | URL to the product image |
+| `inStock` | Indicates if the product is currently in stock |
+| `name` | Name of the bakery product |
+| `price` | Price of the product |
+| `quantity` | Available quantity in inventory |
 
 Operations: List.
 
@@ -276,15 +276,15 @@ Create an instance: `product = client.Product()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `str` |  |
-| `currency` | `str` |  |
-| `description` | `str` |  |
-| `id` | `str` |  |
-| `imageUrl` | `str` |  |
-| `inStock` | `bool` |  |
-| `name` | `str` |  |
-| `price` | `float` |  |
-| `quantity` | `int` |  |
+| `category` | `str` | Category of the product (e.g., cakes, pastries) |
+| `currency` | `str` | Currency code (e.g., USD, EUR) |
+| `description` | `str` | Detailed description of the product |
+| `id` | `str` | Unique identifier for the product |
+| `imageUrl` | `str` | URL to the product image |
+| `inStock` | `bool` | Indicates if the product is currently in stock |
+| `name` | `str` | Name of the bakery product |
+| `price` | `float` | Price of the product |
+| `quantity` | `int` | Available quantity in inventory |
 
 #### Example: List
 

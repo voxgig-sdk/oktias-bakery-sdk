@@ -36,54 +36,63 @@
               "active": true,
               "name": "category",
               "req": true,
+              "short": "Category of the product (e.g., cakes, pastries)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "currency",
               "req": false,
+              "short": "Currency code (e.g., USD, EUR)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed description of the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique identifier for the product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "imageUrl",
               "req": false,
+              "short": "URL to the product image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "inStock",
               "req": true,
+              "short": "Indicates if the product is currently in stock",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Name of the bakery product",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "price",
               "req": true,
+              "short": "Price of the product",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "quantity",
               "req": false,
+              "short": "Available quantity in inventory",
               "type": "`$INTEGER`"
             }
           ],

@@ -33,6 +33,9 @@ class OktiasBakeryConfig
         return [
             "main" => [
                 "name" => "OktiasBakery",
+                "slug" => "oktias-bakery",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,42 +59,51 @@ class OktiasBakeryConfig
             [
               'name' => 'category',
               'req' => true,
+              'short' => 'Category of the product (e.g., cakes, pastries)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'currency',
+              'short' => 'Currency code (e.g., USD, EUR)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'description',
+              'short' => 'Detailed description of the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
               'req' => true,
+              'short' => 'Unique identifier for the product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'imageUrl',
+              'short' => 'URL to the product image',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'inStock',
               'req' => true,
+              'short' => 'Indicates if the product is currently in stock',
               'type' => '`$BOOLEAN`',
             ],
             [
               'name' => 'name',
               'req' => true,
+              'short' => 'Name of the bakery product',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'price',
               'req' => true,
+              'short' => 'Price of the product',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'quantity',
+              'short' => 'Available quantity in inventory',
               'type' => '`$INTEGER`',
             ],
           ],

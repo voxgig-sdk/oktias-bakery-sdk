@@ -116,15 +116,15 @@ const product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `string` | Yes |  |
-| `currency` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `string` | Yes |  |
-| `imageUrl` | `string` | No |  |
-| `inStock` | `boolean` | Yes |  |
-| `name` | `string` | Yes |  |
-| `price` | `number` | Yes |  |
-| `quantity` | `number` | No |  |
+| `category` | `string` | Yes | Category of the product (e.g., cakes, pastries) |
+| `currency` | `string` | No | Currency code (e.g., USD, EUR) |
+| `description` | `string` | No | Detailed description of the product |
+| `id` | `string` | Yes | Unique identifier for the product |
+| `imageUrl` | `string` | No | URL to the product image |
+| `inStock` | `boolean` | Yes | Indicates if the product is currently in stock |
+| `name` | `string` | Yes | Name of the bakery product |
+| `price` | `number` | Yes | Price of the product |
+| `quantity` | `number` | No | Available quantity in inventory |
 
 ### Operations
 

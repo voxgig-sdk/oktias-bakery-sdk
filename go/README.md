@@ -6,7 +6,7 @@ The Golang SDK for the OktiasBakery API — an entity-oriented client using stan
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Product(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,15 +260,15 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"category"` |  |
-| `"currency"` |  |
-| `"description"` |  |
-| `"id"` |  |
-| `"imageUrl"` |  |
-| `"inStock"` |  |
-| `"name"` |  |
-| `"price"` |  |
-| `"quantity"` |  |
+| `"category"` | Category of the product (e.g., cakes, pastries) |
+| `"currency"` | Currency code (e.g., USD, EUR) |
+| `"description"` | Detailed description of the product |
+| `"id"` | Unique identifier for the product |
+| `"imageUrl"` | URL to the product image |
+| `"inStock"` | Indicates if the product is currently in stock |
+| `"name"` | Name of the bakery product |
+| `"price"` | Price of the product |
+| `"quantity"` | Available quantity in inventory |
 
 Operations: List.
 
@@ -293,15 +293,15 @@ Create an instance: `product := client.Product(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
-| `currency` | `string` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `imageUrl` | `string` |  |
-| `inStock` | `bool` |  |
-| `name` | `string` |  |
-| `price` | `float64` |  |
-| `quantity` | `int` |  |
+| `category` | `string` | Category of the product (e.g., cakes, pastries) |
+| `currency` | `string` | Currency code (e.g., USD, EUR) |
+| `description` | `string` | Detailed description of the product |
+| `id` | `string` | Unique identifier for the product |
+| `imageUrl` | `string` | URL to the product image |
+| `inStock` | `bool` | Indicates if the product is currently in stock |
+| `name` | `string` | Name of the bakery product |
+| `price` | `float64` | Price of the product |
+| `quantity` | `int` | Available quantity in inventory |
 
 #### Example: List
 

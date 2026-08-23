@@ -237,15 +237,15 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `currency` |  |
-| `description` |  |
-| `id` |  |
-| `imageUrl` |  |
-| `inStock` |  |
-| `name` |  |
-| `price` |  |
-| `quantity` |  |
+| `category` | Category of the product (e.g., cakes, pastries) |
+| `currency` | Currency code (e.g., USD, EUR) |
+| `description` | Detailed description of the product |
+| `id` | Unique identifier for the product |
+| `imageUrl` | URL to the product image |
+| `inStock` | Indicates if the product is currently in stock |
+| `name` | Name of the bakery product |
+| `price` | Price of the product |
+| `quantity` | Available quantity in inventory |
 
 Operations: List.
 
@@ -270,15 +270,15 @@ Create an instance: `product = client.Product`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `String` |  |
-| `currency` | `String` |  |
-| `description` | `String` |  |
-| `id` | `String` |  |
-| `imageUrl` | `String` |  |
-| `inStock` | `Boolean` |  |
-| `name` | `String` |  |
-| `price` | `Float` |  |
-| `quantity` | `Integer` |  |
+| `category` | `String` | Category of the product (e.g., cakes, pastries) |
+| `currency` | `String` | Currency code (e.g., USD, EUR) |
+| `description` | `String` | Detailed description of the product |
+| `id` | `String` | Unique identifier for the product |
+| `imageUrl` | `String` | URL to the product image |
+| `inStock` | `Boolean` | Indicates if the product is currently in stock |
+| `name` | `String` | Name of the bakery product |
+| `price` | `Float` | Price of the product |
+| `quantity` | `Integer` | Available quantity in inventory |
 
 #### Example: List
 

@@ -87,15 +87,15 @@ product = client.Product()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `str` | Yes |  |
-| `currency` | `str` | No |  |
-| `description` | `str` | No |  |
-| `id` | `str` | Yes |  |
-| `imageUrl` | `str` | No |  |
-| `inStock` | `bool` | Yes |  |
-| `name` | `str` | Yes |  |
-| `price` | `float` | Yes |  |
-| `quantity` | `int` | No |  |
+| `category` | `str` | Yes | Category of the product (e.g., cakes, pastries) |
+| `currency` | `str` | No | Currency code (e.g., USD, EUR) |
+| `description` | `str` | No | Detailed description of the product |
+| `id` | `str` | Yes | Unique identifier for the product |
+| `imageUrl` | `str` | No | URL to the product image |
+| `inStock` | `bool` | Yes | Indicates if the product is currently in stock |
+| `name` | `str` | Yes | Name of the bakery product |
+| `price` | `float` | Yes | Price of the product |
+| `quantity` | `int` | No | Available quantity in inventory |
 
 ### Operations
 
