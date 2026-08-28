@@ -19,13 +19,7 @@ export interface Product {
 
 export interface ProductListMatch {
   category?: string
-  currency?: string
-  description?: string
-  id?: string
-  imageUrl?: string
-  inStock?: boolean
-  name?: string
-  price?: number
-  quantity?: number
+  limit?: number
+  offset?: number
 }
 

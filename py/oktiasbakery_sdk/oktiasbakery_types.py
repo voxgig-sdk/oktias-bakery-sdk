@@ -33,11 +33,5 @@ class Product(ProductRequired, total=False):
 
 class ProductListMatch(TypedDict, total=False):
     category: str
-    currency: str
-    description: str
-    id: str
-    imageUrl: str
-    inStock: bool
-    name: str
-    price: float
-    quantity: int
+    limit: int
+    offset: int

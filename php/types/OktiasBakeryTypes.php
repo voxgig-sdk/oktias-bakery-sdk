@@ -30,13 +30,7 @@ class Product
 class ProductListMatch
 {
     public ?string $category = null;
-    public ?string $currency = null;
-    public ?string $description = null;
-    public ?string $id = null;
-    public ?string $imageUrl = null;
-    public ?bool $inStock = null;
-    public ?string $name = null;
-    public ?float $price = null;
-    public ?int $quantity = null;
+    public ?int $limit = null;
+    public ?int $offset = null;
 }
 

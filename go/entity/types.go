@@ -28,14 +28,8 @@ type Product struct {
 // ProductListMatch is the typed request payload for Product.ListTyped.
 type ProductListMatch struct {
 	Category *string `json:"category,omitempty"`
-	Currency *string `json:"currency,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *string `json:"id,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
-	InStock *bool `json:"inStock,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Price *float64 `json:"price,omitempty"`
-	Quantity *int `json:"quantity,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Offset *int `json:"offset,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

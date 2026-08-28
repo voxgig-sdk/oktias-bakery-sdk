@@ -19,14 +19,8 @@
 
 ---@class ProductListMatch
 ---@field category? string
----@field currency? string
----@field description? string
----@field id? string
----@field imageUrl? string
----@field inStock? boolean
----@field name? string
----@field price? number
----@field quantity? number
+---@field limit? number
+---@field offset? number
 
 local M = {}
 

@@ -54,39 +54,15 @@ Product = Struct.new(
 # @!attribute [rw] category
 #   @return [String, nil]
 #
-# @!attribute [rw] currency
-#   @return [String, nil]
+# @!attribute [rw] limit
+#   @return [Integer, nil]
 #
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] imageUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] inStock
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] price
-#   @return [Float, nil]
-#
-# @!attribute [rw] quantity
+# @!attribute [rw] offset
 #   @return [Integer, nil]
 ProductListMatch = Struct.new(
   :category,
-  :currency,
-  :description,
-  :id,
-  :imageUrl,
-  :inStock,
-  :name,
-  :price,
-  :quantity,
+  :limit,
+  :offset,
   keyword_init: true
 )
 
