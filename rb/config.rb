@@ -66,6 +66,7 @@ module OktiasBakeryConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "imageUrl",
               "short" => "URL to the product image",
               "type" => "`$STRING`",
@@ -83,6 +84,7 @@ module OktiasBakeryConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "float",
               "name" => "price",
               "req" => true,
               "short" => "Price of the product",
@@ -94,6 +96,10 @@ module OktiasBakeryConfig
               "type" => "`$INTEGER`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "product",
           "op" => {
             "list" => {
@@ -128,8 +134,10 @@ module OktiasBakeryConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/products",
-                  "parts" => [
-                    "products",
+                  "segments" => [
+                    {
+                      "lit" => "products",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -142,6 +150,9 @@ module OktiasBakeryConfig
                     "req" => "`reqdata`",
                     "res" => "`body.products`",
                   },
+                  "parts" => [
+                    "products",
+                  ],
                 },
               ],
             },

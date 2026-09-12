@@ -80,6 +80,7 @@ class OktiasBakeryConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'imageUrl',
               'short' => 'URL to the product image',
               'type' => '`$STRING`',
@@ -97,6 +98,7 @@ class OktiasBakeryConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'price',
               'req' => true,
               'short' => 'Price of the product',
@@ -107,6 +109,10 @@ class OktiasBakeryConfig
               'short' => 'Available quantity in inventory',
               'type' => '`$INTEGER`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'product',
           'op' => [
@@ -142,8 +148,10 @@ class OktiasBakeryConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/products',
-                  'parts' => [
-                    'products',
+                  'segments' => [
+                    [
+                      'lit' => 'products',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -155,6 +163,9 @@ class OktiasBakeryConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.products`',
+                  ],
+                  'parts' => [
+                    'products',
                   ],
                 ],
               ],

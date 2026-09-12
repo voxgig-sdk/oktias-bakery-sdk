@@ -54,6 +54,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "imageUrl",
             ["short"] = "URL to the product image",
             ["type"] = "`$STRING`",
@@ -71,6 +72,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "price",
             ["req"] = true,
             ["short"] = "Price of the product",
@@ -81,6 +83,10 @@ local function make_config()
             ["short"] = "Available quantity in inventory",
             ["type"] = "`$INTEGER`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "product",
         ["op"] = {
@@ -116,8 +122,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/products",
-                ["parts"] = {
-                  "products",
+                ["segments"] = {
+                  {
+                    ["lit"] = "products",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -129,6 +137,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.products`",
+                },
+                ["parts"] = {
+                  "products",
                 },
               },
             },

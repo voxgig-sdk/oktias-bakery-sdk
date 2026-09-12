@@ -30,6 +30,7 @@ main: kit: entity: product: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "imageUrl"
       req: false
       short: "URL to the product image"
@@ -48,6 +49,7 @@ main: kit: entity: product: {
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "price"
       req: true
       short: "Price of the product"
@@ -101,8 +103,10 @@ main: kit: entity: product: {
           }
           method: "GET"
           orig: "/products"
-          parts: [
-            "products"
+          segments: [
+            {
+              lit: "products"
+            }
           ]
           select: {
             exist: [
