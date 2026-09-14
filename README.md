@@ -105,7 +105,7 @@ local results, err = client:Product():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/releases) |
+| TypeScript | `@voxgig-sdk/oktias-bakery-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/releases) |
 | Python | `voxgig-sdk-oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/releases) |
 | PHP | `voxgig-sdk/oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/oktias-bakery-sdk/go` | `go get github.com/voxgig-sdk/oktias-bakery-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Product():list()
 ### TypeScript
 
 ```ts
-import { OktiasBakerySDK } from '@voxgig-sdk/oktias-bakery'
+import { OktiasBakerySDK } from '@voxgig-sdk/oktias-bakery-sdk'
 
 const client = new OktiasBakerySDK()
 

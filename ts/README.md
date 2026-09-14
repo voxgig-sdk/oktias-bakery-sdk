@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OktiasBakerySDK } from '@voxgig-sdk/oktias-bakery'
+import { OktiasBakerySDK } from '@voxgig-sdk/oktias-bakery-sdk'
 
 const client = new OktiasBakerySDK()
 ```
@@ -419,7 +419,7 @@ oktias-bakery/
 Import the SDK from the package root:
 
 ```ts
-import { OktiasBakerySDK } from '@voxgig-sdk/oktias-bakery'
+import { OktiasBakerySDK } from '@voxgig-sdk/oktias-bakery-sdk'
 ```
 
 ### Entity state
