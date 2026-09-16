@@ -1,12 +1,18 @@
 # OktiasBakery SDK feature factory
 
 from oktiasbakery_sdk.feature.base_feature import OktiasBakeryBaseFeature
+from oktiasbakery_sdk.feature.ratelimit_feature import OktiasBakeryRatelimitFeature
+from oktiasbakery_sdk.feature.retry_feature import OktiasBakeryRetryFeature
 from oktiasbakery_sdk.feature.test_feature import OktiasBakeryTestFeature
+from oktiasbakery_sdk.feature.timeout_feature import OktiasBakeryTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: OktiasBakeryBaseFeature(),
+    "ratelimit": lambda: OktiasBakeryRatelimitFeature(),
+    "retry": lambda: OktiasBakeryRetryFeature(),
     "test": lambda: OktiasBakeryTestFeature(),
+    "timeout": lambda: OktiasBakeryTimeoutFeature(),
 }
 
 

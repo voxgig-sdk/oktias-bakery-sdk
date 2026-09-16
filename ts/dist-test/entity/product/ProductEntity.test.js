@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.OKTIAS_BAKERY_TEST_LIVE;
         for (const op of ['list']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'product.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'product.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set OKTIAS_BAKERY_TEST_PRODUCT_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "category", "req": true, "short": "Category of the product (e.g., cakes, pastries)", "type": "`$STRING`", "index$": 0 }, { "active": true, "name": "currency", "req": false, "short": "Currency code (e.g., USD, EUR)", "type": "`$STRING`", "index$": 1 }, { "active": true, "name": "description", "req": false, "short": "Detailed description of the product", "type": "`$STRING`", "index$": 2 }, { "active": true, "name": "id", "req": true, "short": "Unique identifier for the product", "type": "`$STRING`", "index$": 3 }, { "active": true, "format": "uri", "name": "imageUrl", "req": false, "short": "URL to the product image", "type": "`$STRING`", "index$": 4 }, { "active": true, "name": "inStock", "req": true, "short": "Indicates if the product is currently in stock", "type": "`$BOOLEAN`", "index$": 5 }, { "active": true, "name": "name", "req": true, "short": "Name of the bakery product", "type": "`$STRING`", "index$": 6 }, { "active": true, "format": "float", "name": "price", "req": true, "short": "Price of the product", "type": "`$NUMBER`", "index$": 7 }, { "active": true, "name": "quantity", "req": false, "short": "Available quantity in inventory", "type": "`$INTEGER`", "index$": 8 }], "id": { "field": "id", "name": "id" }, "name": "product", "op": { "list": { "input": "data", "name": "list", "points": [{ "active": true, "args": { "query": [{ "active": true, "kind": "query", "name": "category", "orig": "category", "reqd": false, "type": "`$STRING`", "index$": 0 }, { "active": true, "example": 20, "kind": "query", "name": "limit", "orig": "limit", "reqd": false, "type": "`$INTEGER`", "index$": 1 }, { "active": true, "example": 0, "kind": "query", "name": "offset", "orig": "offset", "reqd": false, "type": "`$INTEGER`", "index$": 2 }] }, "contract": { "id": "GET /products", "json": "{\"operationId\":\"getProducts\",\"parameters\":[{\"description\":\"Filter products by category (e.g., cakes, pastries)\",\"in\":\"query\",\"name\":\"category\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Maximum number of products to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":20,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Number of products to skip for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"minimum\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"limit\":{\"type\":\"integer\"},\"offset\":{\"type\":\"integer\"},\"products\":{\"items\":{\"properties\":{\"category\":{\"description\":\"Category of the product (e.g., cakes, pastries)\",\"enum\":[\"cakes\",\"pastries\",\"breads\",\"desserts\"],\"type\":\"string\"},\"currency\":{\"default\":\"USD\",\"description\":\"Currency code (e.g., USD, EUR)\",\"type\":\"string\"},\"description\":{\"description\":\"Detailed description of the product\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the product\",\"type\":\"string\"},\"imageUrl\":{\"description\":\"URL to the product image\",\"format\":\"uri\",\"type\":\"string\"},\"inStock\":{\"description\":\"Indicates if the product is currently in stock\",\"type\":\"boolean\"},\"name\":{\"description\":\"Name of the bakery product\",\"type\":\"string\"},\"price\":{\"description\":\"Price of the product\",\"format\":\"float\",\"type\":\"number\"},\"quantity\":{\"description\":\"Available quantity in inventory\",\"type\":\"integer\"}},\"required\":[\"id\",\"name\",\"price\",\"category\",\"inStock\"],\"type\":\"object\"},\"type\":\"array\"},\"total\":{\"description\":\"Total number of products available\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response with list of products\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/products", "segments": [{ "lit": "products" }], "select": { "exist": ["category", "limit", "offset"] }, "transform": { "req": "`reqdata`", "res": "`body.products`" }, "index$": 0 }], "key$": "list" } }, "relations": { "ancestors": [] }, "key$": "product", "name__orig": "product", "Name": "Product", "name_": "product", "name-": "product", "NAME": "PRODUCT", "index$": 0 }, { "active": true, "entity": "product", "key$": "BasicProductFlow", "kind": "basic", "name": "BasicProductFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": {}, "match": {}, "op": "list", "spec": [], "valid": [{ "apply": "ItemExists", "def": { "ref": "product_ref01" } }], "index$": 0 }] }, 'Product');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -101,12 +99,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['OKTIAS_BAKERY_TEST_PRODUCT_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'OKTIAS_BAKERY_TEST_PRODUCT_ENTID': idmap,
         'OKTIAS_BAKERY_TEST_LIVE': 'FALSE',
@@ -114,7 +106,13 @@ function basicSetup(extra) {
     });
     idmap = env['OKTIAS_BAKERY_TEST_PRODUCT_ENTID'];
     const live = 'TRUE' === env.OKTIAS_BAKERY_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['OKTIAS_BAKERY_TEST_PRODUCT_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.OktiasBakerySDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -125,7 +123,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -137,7 +136,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.OKTIAS_BAKERY_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

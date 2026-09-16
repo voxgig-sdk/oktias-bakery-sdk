@@ -4,7 +4,10 @@ declare(strict_types=1);
 // OktiasBakery SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class OktiasBakeryFeatures
@@ -14,8 +17,14 @@ class OktiasBakeryFeatures
         switch ($name) {
             case "base":
                 return new OktiasBakeryBaseFeature();
+            case "ratelimit":
+                return new OktiasBakeryRatelimitFeature();
+            case "retry":
+                return new OktiasBakeryRetryFeature();
             case "test":
                 return new OktiasBakeryTestFeature();
+            case "timeout":
+                return new OktiasBakeryTimeoutFeature();
             default:
                 return new OktiasBakeryBaseFeature();
         }
@@ -31,7 +40,10 @@ class OktiasBakeryFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
