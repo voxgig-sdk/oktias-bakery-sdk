@@ -105,12 +105,12 @@ local results, err = client:Product():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/oktias-bakery-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/releases) |
-| Python | `voxgig-sdk-oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/releases) |
-| PHP | `voxgig-sdk/oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/releases) |
+| TypeScript | `@voxgig-sdk/oktias-bakery-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/tags) |
+| Python | `voxgig-sdk-oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/tags) |
+| PHP | `voxgig-sdk/oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/oktias-bakery-sdk/go` | `go get github.com/voxgig-sdk/oktias-bakery-sdk/go@latest` |
-| Ruby | `voxgig-sdk-oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/releases) |
-| Lua | `voxgig-sdk-oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/releases) |
+| Ruby | `voxgig-sdk-oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/tags) |
+| Lua | `voxgig-sdk-oktias-bakery` | publish pending — [install from git tag](https://github.com/voxgig-sdk/oktias-bakery-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/oktias-bakery-sdk/go-cli` | `go install github.com/voxgig-sdk/oktias-bakery-sdk/go-cli/cmd/oktias-bakery@latest` |
 | Go MCP server | `github.com/voxgig-sdk/oktias-bakery-sdk/go-mcp` | `go get github.com/voxgig-sdk/oktias-bakery-sdk/go-mcp@latest` |
 
