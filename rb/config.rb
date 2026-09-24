@@ -99,55 +99,64 @@ module OktiasBakeryConfig
           "fields" => [
             {
               "name" => "category",
+              "title" => "Category",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Category of the product (e.g., cakes, pastries)",
-              "type" => "`$STRING`",
             },
             {
               "name" => "currency",
-              "short" => "Currency code (e.g., USD, EUR)",
+              "title" => "Currency",
               "type" => "`$STRING`",
+              "short" => "Currency code (e.g., USD, EUR)",
             },
             {
               "name" => "description",
-              "short" => "Detailed description of the product",
+              "title" => "Description",
               "type" => "`$STRING`",
+              "short" => "Detailed description of the product",
             },
             {
               "name" => "id",
+              "title" => "Id",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Unique identifier for the product",
-              "type" => "`$STRING`",
             },
             {
-              "format" => "uri",
               "name" => "imageUrl",
-              "short" => "URL to the product image",
+              "title" => "Image Url",
               "type" => "`$STRING`",
+              "short" => "URL to the product image",
+              "format" => "uri",
             },
             {
               "name" => "inStock",
+              "title" => "In Stock",
+              "type" => "`$BOOLEAN`",
               "req" => true,
               "short" => "Indicates if the product is currently in stock",
-              "type" => "`$BOOLEAN`",
             },
             {
               "name" => "name",
+              "title" => "Name",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Name of the bakery product",
-              "type" => "`$STRING`",
             },
             {
-              "format" => "float",
               "name" => "price",
+              "title" => "Price",
+              "type" => "`$NUMBER`",
               "req" => true,
               "short" => "Price of the product",
-              "type" => "`$NUMBER`",
+              "format" => "float",
             },
             {
               "name" => "quantity",
-              "short" => "Available quantity in inventory",
+              "title" => "Quantity",
               "type" => "`$INTEGER`",
+              "short" => "Available quantity in inventory",
             },
           ],
           "id" => {
@@ -161,30 +170,6 @@ module OktiasBakeryConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "category",
-                        "orig" => "category",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 20,
-                        "kind" => "query",
-                        "name" => "limit",
-                        "orig" => "limit",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 0,
-                        "kind" => "query",
-                        "name" => "offset",
-                        "orig" => "offset",
-                        "type" => "`$INTEGER`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/products",
@@ -193,6 +178,38 @@ module OktiasBakeryConfig
                       "lit" => "products",
                     },
                   ],
+                  "parts" => [
+                    "products",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body.products`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "category",
+                        "orig" => "category",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "limit",
+                        "orig" => "limit",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 20,
+                      },
+                      {
+                        "name" => "offset",
+                        "orig" => "offset",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 0,
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "category",
@@ -200,13 +217,6 @@ module OktiasBakeryConfig
                       "offset",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body.products`",
-                  },
-                  "parts" => [
-                    "products",
-                  ],
                 },
               ],
             },

@@ -24,79 +24,154 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "product": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "category",
-              "req": true,
-              "short": "Category of the product (e.g., cakes, pastries)",
-              "type": "`$STRING`"
+          "fields": {
+            "category": {
+              "a": true,
+              "h": "Category",
+              "n": "category",
+              "r": true,
+              "sh": "Category of the product (e.g., cakes, pastries)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "currency",
-              "req": false,
-              "short": "Currency code (e.g., USD, EUR)",
-              "type": "`$STRING`"
+            "currency": {
+              "a": true,
+              "h": "Currency",
+              "n": "currency",
+              "r": false,
+              "sh": "Currency code (e.g., USD, EUR)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "description",
-              "req": false,
-              "short": "Detailed description of the product",
-              "type": "`$STRING`"
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "Detailed description of the product",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Unique identifier for the product",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Unique identifier for the product",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "imageUrl",
-              "req": false,
-              "short": "URL to the product image",
-              "type": "`$STRING`"
+            "imageUrl": {
+              "a": true,
+              "fo": "uri",
+              "h": "Image Url",
+              "n": "imageUrl",
+              "r": false,
+              "sh": "URL to the product image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "inStock",
-              "req": true,
-              "short": "Indicates if the product is currently in stock",
-              "type": "`$BOOLEAN`"
+            "inStock": {
+              "a": true,
+              "h": "In Stock",
+              "n": "inStock",
+              "r": true,
+              "sh": "Indicates if the product is currently in stock",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": true,
-              "short": "Name of the bakery product",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": true,
+              "sh": "Name of the bakery product",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "price",
-              "req": true,
-              "short": "Price of the product",
-              "type": "`$NUMBER`"
+            "price": {
+              "a": true,
+              "fo": "float",
+              "h": "Price",
+              "n": "price",
+              "r": true,
+              "sh": "Price of the product",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "quantity",
-              "req": false,
-              "short": "Available quantity in inventory",
-              "type": "`$INTEGER`"
+            "quantity": {
+              "a": true,
+              "h": "Quantity",
+              "n": "quantity",
+              "r": false,
+              "sh": "Available quantity in inventory",
+              "t": "`$INTEGER`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -108,59 +183,59 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /products",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "category",
-                        "orig": "category",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "category",
+                        "or": "category",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 20,
-                        "kind": "query",
-                        "name": "limit",
-                        "orig": "limit",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 20,
+                        "k": "query",
+                        "n": "limit",
+                        "or": "limit",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 0,
-                        "kind": "query",
-                        "name": "offset",
-                        "orig": "offset",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 0,
+                        "k": "query",
+                        "n": "offset",
+                        "or": "offset",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /products",
-                    "json": "{\"operationId\":\"getProducts\",\"parameters\":[{\"description\":\"Filter products by category (e.g., cakes, pastries)\",\"in\":\"query\",\"name\":\"category\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Maximum number of products to return\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":20,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Number of products to skip for pagination\",\"in\":\"query\",\"name\":\"offset\",\"required\":false,\"schema\":{\"default\":0,\"minimum\":0,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"limit\":{\"type\":\"integer\"},\"offset\":{\"type\":\"integer\"},\"products\":{\"items\":{\"properties\":{\"category\":{\"description\":\"Category of the product (e.g., cakes, pastries)\",\"enum\":[\"cakes\",\"pastries\",\"breads\",\"desserts\"],\"type\":\"string\"},\"currency\":{\"default\":\"USD\",\"description\":\"Currency code (e.g., USD, EUR)\",\"type\":\"string\"},\"description\":{\"description\":\"Detailed description of the product\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the product\",\"type\":\"string\"},\"imageUrl\":{\"description\":\"URL to the product image\",\"format\":\"uri\",\"type\":\"string\"},\"inStock\":{\"description\":\"Indicates if the product is currently in stock\",\"type\":\"boolean\"},\"name\":{\"description\":\"Name of the bakery product\",\"type\":\"string\"},\"price\":{\"description\":\"Price of the product\",\"format\":\"float\",\"type\":\"number\"},\"quantity\":{\"description\":\"Available quantity in inventory\",\"type\":\"integer\"}},\"required\":[\"id\",\"name\",\"price\",\"category\",\"inStock\"],\"type\":\"object\"},\"type\":\"array\"},\"total\":{\"description\":\"Total number of products available\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Successful response with list of products\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Bad request\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"code\":{\"description\":\"Error code\",\"type\":\"string\"},\"details\":{\"description\":\"Additional error details\",\"type\":\"string\"},\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"required\":[\"error\"],\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/products",
-                  "segments": [
-                    {
-                      "lit": "products"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/products",
+                  "q": {
                     "exist": [
                       "category",
                       "limit",
                       "offset"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "products"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body.products`"
                   }
@@ -589,13 +664,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

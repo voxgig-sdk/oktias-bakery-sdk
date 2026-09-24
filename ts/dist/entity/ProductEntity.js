@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductEntity = void 0;
 const OktiasBakeryEntityBase_1 = require("../OktiasBakeryEntityBase");
-// TODO: needs Entity superclass
 class ProductEntity extends OktiasBakeryEntityBase_1.OktiasBakeryEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

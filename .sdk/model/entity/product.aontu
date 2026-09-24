@@ -1,0 +1,143 @@
+# Entity: product
+
+main: kit: entity: product: {
+
+  alias: field: {}
+
+  fields: {
+    category: {
+      h: "Category"
+      n: "category"
+      r: true
+      sh: "Category of the product (e.g., cakes, pastries)"
+      t: "`$STRING`"
+    }
+    currency: {
+      h: "Currency"
+      n: "currency"
+      r: false
+      sh: "Currency code (e.g., USD, EUR)"
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Detailed description of the product"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the product"
+      t: "`$STRING`"
+    }
+    imageUrl: {
+      fo: "uri"
+      h: "Image Url"
+      n: "imageUrl"
+      r: false
+      sh: "URL to the product image"
+      t: "`$STRING`"
+    }
+    inStock: {
+      h: "In Stock"
+      n: "inStock"
+      r: true
+      sh: "Indicates if the product is currently in stock"
+      t: "`$BOOLEAN`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Name of the bakery product"
+      t: "`$STRING`"
+    }
+    price: {
+      fo: "float"
+      h: "Price"
+      n: "price"
+      r: true
+      sh: "Price of the product"
+      t: "`$NUMBER`"
+    }
+    quantity: {
+      h: "Quantity"
+      n: "quantity"
+      r: false
+      sh: "Available quantity in inventory"
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "product"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /products"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "category"
+                or: "category"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/products"
+          q: {
+            exist: [
+              "category"
+              "limit"
+              "offset"
+            ]
+          }
+          s: [
+            {
+              lit: "products"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.products`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

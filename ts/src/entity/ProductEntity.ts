@@ -19,7 +19,6 @@ import type {
   ProductListMatch,
 } from '../OktiasBakeryTypes'
 
-// TODO: needs Entity superclass
 class ProductEntity extends OktiasBakeryEntityBase<Product> {
 
   constructor(client: OktiasBakerySDK, entopts: any) {

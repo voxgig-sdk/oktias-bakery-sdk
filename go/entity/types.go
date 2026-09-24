@@ -1,7 +1,7 @@
 // Typed models for the OktiasBakery SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,15 +14,6 @@ import (
 
 // Product is the typed data model for the product entity.
 type Product struct {
-	Category string `json:"category"`
-	Currency *string `json:"currency,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id string `json:"id"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
-	InStock bool `json:"inStock"`
-	Name string `json:"name"`
-	Price float64 `json:"price"`
-	Quantity *int `json:"quantity,omitempty"`
 }
 
 // ProductListMatch is the typed request payload for Product.ListTyped.

@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,55 +132,64 @@ class Config {
       "fields": [
         {
           "name": "category",
+          "title": "Category",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Category of the product (e.g., cakes, pastries)",
-          "type": "`$STRING`"
+          "short": "Category of the product (e.g., cakes, pastries)"
         },
         {
           "name": "currency",
-          "short": "Currency code (e.g., USD, EUR)",
-          "type": "`$STRING`"
+          "title": "Currency",
+          "type": "`$STRING`",
+          "short": "Currency code (e.g., USD, EUR)"
         },
         {
           "name": "description",
-          "short": "Detailed description of the product",
-          "type": "`$STRING`"
+          "title": "Description",
+          "type": "`$STRING`",
+          "short": "Detailed description of the product"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Unique identifier for the product",
-          "type": "`$STRING`"
+          "short": "Unique identifier for the product"
         },
         {
-          "format": "uri",
           "name": "imageUrl",
+          "title": "Image Url",
+          "type": "`$STRING`",
           "short": "URL to the product image",
-          "type": "`$STRING`"
+          "format": "uri"
         },
         {
           "name": "inStock",
+          "title": "In Stock",
+          "type": "`$BOOLEAN`",
           "req": true,
-          "short": "Indicates if the product is currently in stock",
-          "type": "`$BOOLEAN`"
+          "short": "Indicates if the product is currently in stock"
         },
         {
           "name": "name",
+          "title": "Name",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Name of the bakery product",
-          "type": "`$STRING`"
+          "short": "Name of the bakery product"
         },
         {
-          "format": "float",
           "name": "price",
+          "title": "Price",
+          "type": "`$NUMBER`",
           "req": true,
           "short": "Price of the product",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "quantity",
-          "short": "Available quantity in inventory",
-          "type": "`$INTEGER`"
+          "title": "Quantity",
+          "type": "`$INTEGER`",
+          "short": "Available quantity in inventory"
         }
       ],
       "id": {
@@ -201,30 +203,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "category",
-                    "orig": "category",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 20,
-                    "kind": "query",
-                    "name": "limit",
-                    "orig": "limit",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "offset",
-                    "orig": "offset",
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/products",
@@ -233,20 +211,45 @@ class Config {
                   "lit": "products"
                 }
               ],
+              "parts": [
+                "products"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.products`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "category",
+                    "orig": "category",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "limit",
+                    "orig": "limit",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 20
+                  },
+                  {
+                    "name": "offset",
+                    "orig": "offset",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 0
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "category",
                   "limit",
                   "offset"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.products`"
-              },
-              "parts": [
-                "products"
-              ]
+              }
             }
           ]
         }

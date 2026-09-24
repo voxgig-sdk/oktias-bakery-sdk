@@ -91,55 +91,64 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "category",
+						"title": "Category",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Category of the product (e.g., cakes, pastries)",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "currency",
-						"short": "Currency code (e.g., USD, EUR)",
+						"title": "Currency",
 						"type": "`$STRING`",
+						"short": "Currency code (e.g., USD, EUR)",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Detailed description of the product",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the product",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the product",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "imageUrl",
-						"short": "URL to the product image",
+						"title": "Image Url",
 						"type": "`$STRING`",
+						"short": "URL to the product image",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "inStock",
+						"title": "In Stock",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "Indicates if the product is currently in stock",
-						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "name",
+						"title": "Name",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Name of the bakery product",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "price",
+						"title": "Price",
+						"type": "`$NUMBER`",
 						"req": true,
 						"short": "Price of the product",
-						"type": "`$NUMBER`",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "quantity",
-						"short": "Available quantity in inventory",
+						"title": "Quantity",
 						"type": "`$INTEGER`",
+						"short": "Available quantity in inventory",
 					},
 				},
 				"id": map[string]any{
@@ -153,30 +162,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "category",
-											"orig": "category",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 20,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 0,
-											"kind": "query",
-											"name": "offset",
-											"orig": "offset",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/products",
@@ -185,19 +170,44 @@ func MakeConfig() map[string]any {
 										"lit": "products",
 									},
 								},
+								"parts": []any{
+									"products",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.products`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "category",
+											"orig": "category",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 20,
+										},
+										map[string]any{
+											"name": "offset",
+											"orig": "offset",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 0,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"category",
 										"limit",
 										"offset",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.products`",
-								},
-								"parts": []any{
-									"products",
 								},
 							},
 						},
