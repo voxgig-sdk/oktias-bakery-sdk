@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 OktiasBakeryUtility::setRegistrar(function (OktiasBakeryUtility $u): void {
     $u->clean = [OktiasBakeryClean::class, 'call'];
+    $u->clean_add = [OktiasBakeryClean::class, 'add'];
+    $u->clean_explain = [OktiasBakeryDone::class, 'clean_explain'];
     $u->done = [OktiasBakeryDone::class, 'call'];
     $u->make_error = [OktiasBakeryMakeError::class, 'call'];
     $u->feature_add = [OktiasBakeryFeatureAdd::class, 'call'];

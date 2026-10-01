@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 OktiasBakeryUtility.registrar = ->(u) {
   u.clean = OktiasBakeryUtilities::Clean
+  u.clean_add = OktiasBakeryUtilities::CleanAdd
+  u.clean_explain = OktiasBakeryUtilities::CleanExplain
   u.done = OktiasBakeryUtilities::Done
   u.make_error = OktiasBakeryUtilities::MakeError
   u.feature_add = OktiasBakeryUtilities::FeatureAdd
