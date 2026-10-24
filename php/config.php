@@ -93,6 +93,7 @@ class OktiasBakeryConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -207,6 +208,7 @@ class OktiasBakeryConfig
                         'orig' => 'category',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'limit',
@@ -224,12 +226,10 @@ class OktiasBakeryConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'category',
-                      'limit',
-                      'offset',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

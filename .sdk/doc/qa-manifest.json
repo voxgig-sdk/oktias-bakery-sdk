@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Category of the product (for example, cakes, pastries)",
+      "Currency code (for example, USD, EUR)",
+      "Detailed description of the product",
+      "Production server",
+      "Successful response with list of products",
+      "This API provides functionality for an online bakery store, enabling users to browse products, place orders, and manage a shopping cart. It is designed to streamline the shopping experience for cakes and pastries, integrating with backend services for inventory and transaction management.",
+      "URL to the product image",
+      "Unique identifier for the product"
+    ]
+  }
 }

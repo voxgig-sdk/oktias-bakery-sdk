@@ -7,6 +7,19 @@ import { OktiasBakeryEntityBase } from './OktiasBakeryEntityBase';
 import { Utility } from './utility/Utility';
 import { BaseFeature } from './feature/base/BaseFeature';
 declare const stdutil: Utility;
+type DirectResult = {
+    ok: false;
+    err: any;
+    status?: undefined;
+    headers?: undefined;
+    data?: undefined;
+} | {
+    ok: boolean;
+    status: number;
+    headers: any;
+    data: any;
+    err?: any;
+};
 declare class OktiasBakerySDK {
     _mode: string;
     _options: any;
@@ -17,32 +30,8 @@ declare class OktiasBakerySDK {
     options(): any;
     utility(): any;
     prepare(fetchargs?: any): Promise<any>;
-    direct(fetchargs?: any): Promise<Error | {
-        ok: boolean;
-        err: any;
-        status?: undefined;
-        headers?: undefined;
-        data?: undefined;
-    } | {
-        ok: boolean;
-        status: number;
-        headers: any;
-        data: any;
-        err?: undefined;
-    }>;
-    _rawRequest(fetchargs?: any): Promise<Error | {
-        ok: boolean;
-        err: any;
-        status?: undefined;
-        headers?: undefined;
-        data?: undefined;
-    } | {
-        ok: boolean;
-        status: number;
-        headers: any;
-        data: any;
-        err?: undefined;
-    }>;
+    direct(fetchargs?: any): Promise<DirectResult>;
+    _rawRequest(fetchargs?: any): Promise<DirectResult>;
     graphql(query: string, variables?: any, ctrl?: any): Promise<any>;
     Product(entopts?: Record<string, any>): ProductEntity;
     static test(testoptsarg?: any, sdkoptsarg?: any): OktiasBakerySDK;
@@ -55,3 +44,4 @@ declare class OktiasBakerySDK {
 }
 declare const SDK: typeof OktiasBakerySDK;
 export { stdutil, config, BaseFeature, OktiasBakeryEntityBase, OktiasBakerySDK, SDK, };
+export type { DirectResult };

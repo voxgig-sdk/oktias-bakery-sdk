@@ -17,28 +17,46 @@ const PLAN = [
         "args": [],
         "select": {
             "category": "v1",
-            "limit": "v1",
-            "offset": "v1"
+            "limit": 20,
+            "offset": 0
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "category",
             "limit",
             "offset"
+        ],
+        "queryArgs": [
+            {
+                "name": "category",
+                "wire": "category"
+            },
+            {
+                "name": "limit",
+                "wire": "limit"
+            },
+            {
+                "name": "offset",
+                "wire": "offset"
+            }
         ],
         "auth": null,
         "status": 200,
         "sample": {
             "products": [
                 {
-                    "category": "cakes",
-                    "currency": "x",
-                    "description": "x",
                     "id": "x",
+                    "name": "x",
+                    "description": "x",
+                    "category": "cakes",
+                    "price": 1,
+                    "currency": "x",
                     "imageUrl": "x",
                     "inStock": true,
-                    "name": "x",
-                    "price": 1,
                     "quantity": 1
                 }
             ],

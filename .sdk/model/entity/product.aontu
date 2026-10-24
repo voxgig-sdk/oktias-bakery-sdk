@@ -117,12 +117,9 @@ main: kit: entity: product: {
           }
           m: "GET"
           o: "/products"
-          q: {
-            exist: [
-              "category"
-              "limit"
-              "offset"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

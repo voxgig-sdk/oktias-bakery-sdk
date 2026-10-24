@@ -79,6 +79,7 @@ module OktiasBakeryConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -193,6 +194,7 @@ module OktiasBakeryConfig
                         "orig" => "category",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                       {
                         "name" => "limit",
@@ -210,12 +212,10 @@ module OktiasBakeryConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "category",
-                      "limit",
-                      "offset",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
